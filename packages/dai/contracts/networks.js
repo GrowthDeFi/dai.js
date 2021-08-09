@@ -5,10 +5,16 @@ import kovanAddresses from './addresses/kovan.json';
 import mainnetAddresses from './addresses/mainnet.json';
 import testnetAddresses from './addresses/testnet.json';
 
+import bscmainAddresses from './addresses/bscmain.json';
+import maticmainAddresses from './addresses/maticmain.json';
+
 const addressMapping = {
   mainnet: mainnetAddresses,
   kovan: kovanAddresses,
-  testnet: testnetAddresses
+  testnet: testnetAddresses,
+
+  bscmain: bscmainAddresses,
+  maticmain: maticmainAddresses
 };
 
 export function contractAddressesInfo(addresses) {
@@ -149,5 +155,8 @@ export default [
 
   { name: 'kovan', networkId: 42, contracts: contractInfo('kovan') },
   { name: 'test', networkId: 1337, contracts: contractInfo('testnet') },
-  { name: 'test', networkId: TESTNET_ID, contracts: contractInfo('testnet') }
+  { name: 'test', networkId: TESTNET_ID, contracts: contractInfo('testnet') },
+
+  { name: 'bscmain', networkId: 56, contracts: contractInfo('bscmain') },
+  { name: 'maticmain', networkId: 137, contracts: contractInfo('maticmain') }
 ];

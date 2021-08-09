@@ -1,0 +1,8 @@
+{
+  "web3": {
+    "provider": {
+      "type": "HTTP",
+      "url": "https://bsc-dataseed.binance.org/"
+    }
+  }
+}

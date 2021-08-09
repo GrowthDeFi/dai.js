@@ -13,6 +13,12 @@ export const netIdToName = id => {
       return 'mainnet';
     case 42:
       return 'kovan';
+
+    case 56:
+      return 'bscmain';
+    case 137:
+      return 'maticmain';
+
     case 999:
       return 'ganache';
     default:
@@ -26,6 +32,12 @@ export const netIdtoSpockUrl = id => {
       return MAINNET_URL;
     case 42:
       return KOVAN_URL;
+
+    case 56:
+      throw new Error('unsupported network');
+    case 137:
+      throw new Error('unsupported network');
+
     default:
       return STAGING_MAINNET_URL;
   }
@@ -37,6 +49,12 @@ export const netIdtoSpockUrlStaging = id => {
       return STAGING_MAINNET_URL;
     case 42:
       return KOVAN_URL;
+
+    case 56:
+      throw new Error('unsupported network');
+    case 137:
+      throw new Error('unsupported network');
+
     default:
       return STAGING_MAINNET_URL;
   }

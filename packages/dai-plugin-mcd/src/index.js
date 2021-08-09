@@ -16,6 +16,9 @@ import { ServiceRoles as ServiceRoles_ } from './constants';
 import BigNumber from 'bignumber.js';
 import wethAbi from '../contracts/abis/WETH9.json';
 
+import bscmainAddresses from '../contracts/addresses/bscmain.json';
+import maticmainAddresses from '../contracts/addresses/maticmain.json';
+
 export const ServiceRoles = ServiceRoles_;
 const { CDP_MANAGER, CDP_TYPE, SYSTEM_DATA, AUCTION, SAVINGS } = ServiceRoles;
 
@@ -41,7 +44,10 @@ let addContracts = reduce(
         address: {
           testnet: testnetAddress,
           kovan: kovanAddresses[name],
-          mainnet: mainnetAddresses[name]
+          mainnet: mainnetAddresses[name],
+
+          bscmain: bscmainAddresses[name],
+          maticmain: maticmainAddresses[name]
         }
       };
     }
