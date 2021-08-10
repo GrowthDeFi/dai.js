@@ -35,11 +35,11 @@
     "ramda": "^0.25.0"
   },
   "peerDependencies": {
-    "@growthdefi/mor": "^0.31"
+    "@growthdefi/mor": "0.32.11-rc1"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
-    "@growthdefi/mor": "^0.31",
+    "@growthdefi/mor": "0.32.11-rc1",
     "@makerdao/dai-plugin-config": "^0.2.14-rc.1",
     "web3-utils": "^1.2.6"
   }
