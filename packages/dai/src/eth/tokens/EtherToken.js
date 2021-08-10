@@ -1,4 +1,4 @@
-import { getCurrency, ETH } from '../Currency';
+import { getCurrency, MATIC } from '../Currency';
 import tracksTransactions from '../../utils/tracksTransactions';
 
 export default class EtherToken {
@@ -18,7 +18,7 @@ export default class EtherToken {
   }
 
   async balanceOf(owner) {
-    return ETH.wei(await this._web3.getBalance(owner));
+    return MATIC.wei(await this._web3.getBalance(owner));
   }
 
   // eslint-disable-next-line
@@ -42,7 +42,7 @@ export default class EtherToken {
   }
 
   @tracksTransactions
-  async transferFrom(fromAddress, toAddress, amount, { unit = ETH, promise }) {
+  async transferFrom(fromAddress, toAddress, amount, { unit = MATIC, promise }) {
     return this._transactionManager.sendTransaction(
       {
         from: fromAddress,

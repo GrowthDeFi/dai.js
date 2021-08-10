@@ -23,20 +23,20 @@ export const getCurrency = createGetCurrency(currencies);
 // the latter is convenient when you know what you want to use, and the former
 // is convenient when you are picking a currency based on a symbol from input
 
-export const ETH = currencies.ETH;
+export const MATIC = currencies.MATIC;
 export const MKR = currencies.MKR;
 export const PETH = currencies.PETH;
-export const WETH = currencies.WETH;
+export const WMATIC = currencies.WMATIC;
 export const USD = currencies.USD;
 
-export const USD_ETH = createCurrencyRatio(USD, ETH);
+export const USD_MATIC = createCurrencyRatio(USD, MATIC);
 export const USD_MKR = createCurrencyRatio(USD, MKR);
 export const USD_PETH = createCurrencyRatio(USD, PETH);
-export const USD_WETH = createCurrencyRatio(USD, WETH);
+export const USD_WMATIC = createCurrencyRatio(USD, WMATIC);
 
 Object.assign(currencies, {
-  USD_ETH,
+  USD_MATIC,
   USD_MKR,
   USD_PETH,
-  USD_WETH
+  USD_WMATIC
 });
