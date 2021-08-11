@@ -11,6 +11,7 @@ export default function makeSigner(web3Service) {
     sendTransaction: tx => {
       return web3Service.sendTransaction({
         ...tx,
+        chainId: 137, // TODO this is a hack, should find the proper way to pass in this parameter
         from: web3Service.currentAddress()
       });
     },
