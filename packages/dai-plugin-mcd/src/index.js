@@ -67,6 +67,7 @@ export const DAI = createCurrency('DAI');
 // Casting for savings dai
 export const DSR_DAI = createCurrency('DSR-DAI');
 
+export const GNT = createCurrency('GNT');
 export const ETH = createCurrency('ETH');
 
 export const defaultCdpTypes = [
