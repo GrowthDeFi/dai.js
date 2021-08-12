@@ -1,6 +1,6 @@
 import { createGetCurrency } from '@makerdao/currency';
 import BigNumber from 'bignumber.js';
-import { MKR, STAGING_MAINNET_URL, KOVAN_URL, MAINNET_URL } from './constants';
+import { MKR, STAGING_MAINNET_URL, KOVAN_URL, MAINNET_URL, BSCMAIN_URL, MATICMAIN_URL } from './constants';
 
 /**
  * @desc get network name
@@ -34,9 +34,9 @@ export const netIdtoSpockUrl = id => {
       return KOVAN_URL;
 
     case 56:
-      throw new Error('unsupported network');
+      return BSCMAIN_URL;
     case 137:
-      throw new Error('unsupported network');
+      return MATICMAIN_URL;
 
     default:
       return STAGING_MAINNET_URL;
@@ -51,9 +51,9 @@ export const netIdtoSpockUrlStaging = id => {
       return KOVAN_URL;
 
     case 56:
-      throw new Error('unsupported network');
+      return BSCMAIN_URL;
     case 137:
-      throw new Error('unsupported network');
+      return MATICMAIN_URL;
 
     default:
       return STAGING_MAINNET_URL;
