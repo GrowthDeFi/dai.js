@@ -168,6 +168,8 @@ export default class CdpManager extends LocalService {
     // Indicates if gem supports transferFrom
     if (!isEth && method !== 'openLockGNTAndDraw')
       args.splice(-1, 0, !GNT.isInstance(lockAmount));
+    if (method == 'lockGemAndDraw' || method == 'openLockGemAndDraw')
+      args.splice(-1, 0, '0x0000000000000000000000000000000000000000');
 
     return await this.proxyActions[method](...args);
   }
@@ -197,6 +199,8 @@ export default class CdpManager extends LocalService {
     if (id && isGnt) await transferToBag(lockAmount, proxyAddress, this);
     // Indicates if gem supports transferFrom
     if (!isEth) args.splice(-2, 0, !GNT.isInstance(lockAmount));
+    if (method == 'safeLockGem')
+      args.splice(-1, 0, '0x0000000000000000000000000000000000000000');
 
     return this.proxyActions[method](...args);
   }
@@ -217,7 +221,7 @@ export default class CdpManager extends LocalService {
   wipeAndFree(id, ilk, wipeAmount = DAI(0), freeAmount, { promise }) {
     const isEth = MATIC.isInstance(freeAmount);
     const method = isEth ? 'wipeAndFreeETH' : 'wipeAndFreeGem';
-    return this.proxyActions[method](
+    const args = [
       this._managerAddress,
       this._adapterAddress(ilk),
       this._adapterAddress('DAI'),
@@ -225,7 +229,10 @@ export default class CdpManager extends LocalService {
       freeAmount.toFixed(this._precision(freeAmount, ilk)),
       wipeAmount.toFixed('wei'),
       { dsProxy: true, promise, metadata: { id, ilk, wipeAmount, freeAmount } }
-    );
+    ];
+    if (method == 'wipeAndFreeGem')
+      args.splice(-1, 0, '0x0000000000000000000000000000000000000000');
+    return this.proxyActions[method](...args);
   }
 
   @tracksTransactions
@@ -278,14 +285,17 @@ export default class CdpManager extends LocalService {
   wipeAllAndFree(id, ilk, freeAmount, { promise }) {
     const isEth = MATIC.isInstance(freeAmount);
     const method = isEth ? 'wipeAllAndFreeETH' : 'wipeAllAndFreeGem';
-    return this.proxyActions[method](
+    const args = [
       this._managerAddress,
       this._adapterAddress(ilk),
       this._adapterAddress('DAI'),
       this.getIdBytes(id),
       freeAmount.toFixed(this._precision(freeAmount, ilk)),
       { dsProxy: true, promise, metadata: { id, ilk, freeAmount } }
-    );
+    ];
+    if (method == 'wipeAllAndFreeGem')
+      args.splice(-1, 0, '0x0000000000000000000000000000000000000000');
+    return this.proxyActions[method](...args);
   }
 
   // Gives CDP directly to the supplied address
