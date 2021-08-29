@@ -14,7 +14,7 @@ import {
 } from './utils';
 import has from 'lodash/has';
 import padStart from 'lodash/padStart';
-import { DAI, BNB, GNT } from './index';
+import { DAI, BNB, GNT, ilkReserveMap } from './index';
 const { CDP_MANAGER, CDP_TYPE, SYSTEM_DATA } = ServiceRoles;
 import getEventHistoryImpl from './EventHistory';
 
@@ -169,7 +169,7 @@ export default class CdpManager extends LocalService {
     if (!isEth && method !== 'openLockGNTAndDraw')
       args.splice(-1, 0, !GNT.isInstance(lockAmount));
     if (method == 'lockGemAndDraw' || method == 'openLockGemAndDraw')
-      args.splice(-1, 0, '0x0000000000000000000000000000000000000000');
+      args.splice(-1, 0, ilkReserveMap[ilk] || '0x0000000000000000000000000000000000000000');
 
     return await this.proxyActions[method](...args);
   }
@@ -200,7 +200,7 @@ export default class CdpManager extends LocalService {
     // Indicates if gem supports transferFrom
     if (!isEth) args.splice(-2, 0, !GNT.isInstance(lockAmount));
     if (method == 'safeLockGem')
-      args.splice(-1, 0, '0x0000000000000000000000000000000000000000');
+      args.splice(-1, 0, ilkReserveMap[ilk] || '0x0000000000000000000000000000000000000000');
 
     return this.proxyActions[method](...args);
   }
@@ -231,7 +231,7 @@ export default class CdpManager extends LocalService {
       { dsProxy: true, promise, metadata: { id, ilk, wipeAmount, freeAmount } }
     ];
     if (method == 'wipeAndFreeGem')
-      args.splice(-1, 0, '0x0000000000000000000000000000000000000000');
+      args.splice(-1, 0, ilkReserveMap[ilk] || '0x0000000000000000000000000000000000000000');
     return this.proxyActions[method](...args);
   }
 
@@ -294,7 +294,7 @@ export default class CdpManager extends LocalService {
       { dsProxy: true, promise, metadata: { id, ilk, freeAmount } }
     ];
     if (method == 'wipeAllAndFreeGem')
-      args.splice(-1, 0, '0x0000000000000000000000000000000000000000');
+      args.splice(-1, 0, ilkReserveMap[ilk] || '0x0000000000000000000000000000000000000000');
     return this.proxyActions[method](...args);
   }
 
