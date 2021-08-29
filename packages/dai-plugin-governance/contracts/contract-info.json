@@ -18,7 +18,7 @@
     "inception_block": {
       "mainnet": "8928171",
       "kovan": "14764552",
-      "bscmain": "1",
+      "bscmain": "10429359",
       "maticmain": "17189507"
     },
     "events": {

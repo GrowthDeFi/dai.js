@@ -1,6 +1,6 @@
 export default {
   MKR: 'MKR',
-  WMATIC: 'WMATIC',
+  WBNB: 'WBNB',
   PETH: 'PETH',
-  MATIC: 'MATIC'
+  BNB: 'BNB'
 };

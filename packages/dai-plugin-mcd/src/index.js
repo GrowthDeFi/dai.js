@@ -56,12 +56,12 @@ let addContracts = reduce(
   {}
 );
 
-export const MATIC = createCurrency('MATIC');
+export const BNB = createCurrency('BNB');
 export const MKR = createCurrency('MKR');
 export const USD = createCurrency('USD');
-export const USD_MATIC = createCurrencyRatio(USD, MATIC);
+export const USD_BNB = createCurrencyRatio(USD, BNB);
 
-export const WMATIC = createCurrency('WMATIC');
+export const WBNB = createCurrency('WBNB');
 export const DAI = createCurrency('DAI');
 
 // Casting for savings dai
@@ -69,10 +69,44 @@ export const DSR_DAI = createCurrency('DSR-DAI');
 
 export const GNT = createCurrency('GNT');
 export const ETH = createCurrency('ETH');
+export const BTCB = createCurrency('BTCB');
+export const BUSD = createCurrency('BUSD');
+export const USDC = createCurrency('USDC');
+export const CAKE = createCurrency('CAKE');
+export const BANANA = createCurrency('BANANA');
+export const PCSBNBCAKE = createCurrency('PCSBNBCAKE');
+export const PCSBNBBUSD = createCurrency('PCSBNBBUSD');
+export const PCSBNBETH = createCurrency('PCSBNBETH');
+export const PCSBNBBTCB = createCurrency('PCSBNBBTCB');
+export const PCSBUSDUSDC = createCurrency('PCSBUSDUSDC');
+export const PCSBUSDBTCB = createCurrency('PCSBUSDBTCB');
+export const PCSBUSDCAKE = createCurrency('PCSBUSDCAKE');
+export const PCSETHBTCB = createCurrency('PCSETHBTCB');
+export const PCSETHUSDC = createCurrency('PCSETHUSDC');
+export const STKCAKE = createCurrency('STKCAKE');
+export const STKBANANA = createCurrency('STKBANANA');
+export const STKPCSBNBCAKE = createCurrency('STKPCSBNBCAKE');
+export const STKPCSBNBBUSD = createCurrency('STKPCSBNBBUSD');
+export const STKPCSBNBETH = createCurrency('STKPCSBNBETH');
+export const STKPCSBNBBTCB = createCurrency('STKPCSBNBBTCB');
+export const STKPCSBUSDUSDC = createCurrency('STKPCSBUSDUSDC');
+export const STKPCSBUSDBTCB = createCurrency('STKPCSBUSDBTCB');
+export const STKPCSBUSDCAKE = createCurrency('STKPCSBUSDCAKE');
+export const STKPCSETHBTCB = createCurrency('STKPCSETHBTCB');
+export const STKPCSETHUSDC = createCurrency('STKPCSETHUSDC');
 
 export const defaultCdpTypes = [
-  { currency: MATIC, ilk: 'MATIC-A' },
-  { currency: ETH, ilk: 'ETH-A' },
+  { currency: STKCAKE, ilk: 'STKCAKE-A' },
+  { currency: STKBANANA, ilk: 'STKBANANA-A' },
+  { currency: STKPCSBNBCAKE, ilk: 'STKPCSBNBCAKE-A' },
+  { currency: STKPCSBNBBUSD, ilk: 'STKPCSBNBBUSD-A' },
+  { currency: STKPCSBNBETH, ilk: 'STKPCSBNBETH-A' },
+  { currency: STKPCSBNBBTCB, ilk: 'STKPCSBNBBTCB-A' },
+  { currency: STKPCSBUSDUSDC, ilk: 'STKPCSBUSDUSDC-A' },
+  { currency: STKPCSBUSDBTCB, ilk: 'STKPCSBUSDBTCB-A' },
+  { currency: STKPCSBUSDCAKE, ilk: 'STKPCSBUSDCAKE-A' },
+  { currency: STKPCSETHBTCB, ilk: 'STKPCSETHBTCB-A' },
+  { currency: STKPCSETHUSDC, ilk: 'STKPCSETHUSDC-A' },
 ];
 
 export const SAI = createCurrency('SAI');
@@ -85,7 +119,7 @@ export const defaultTokens = [
   ...new Set([
     ...defaultCdpTypes.map(type => type.currency),
     DAI,
-    WMATIC,
+    WBNB,
     SAI,
     DSR_DAI
   ])
@@ -124,7 +158,7 @@ export const McdPlugin = {
       token: {
         erc20: [
           { currency: DAI, address: addContracts.MCD_DAI.address },
-          { currency: WMATIC, address: addContracts.MATIC.address, abi: wethAbi },
+          { currency: WBNB, address: addContracts.BNB.address, abi: wethAbi },
           ...tokens
         ]
       },

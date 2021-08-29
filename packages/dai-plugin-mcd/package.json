@@ -1,7 +1,7 @@
 {
-  "name": "@growthdefi/_mor-plugin-mcd",
+  "name": "@growthdefi/mor-plugin-mcd",
   "description": "Plugin to add Multi-Collateral Dai support to dai.js",
-  "version": "1.0.11",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "dist/index.js",
   "unpkg": "umd/index.js",
@@ -20,7 +20,7 @@
     "test:integration": "export NETWORK='test' && yarn test --config ./test/config/jestIntegrationConfig.json"
   },
   "peerDependencies": {
-    "@growthdefi/_mor": "^1.0.11"
+    "@growthdefi/mor": "^1.0.0"
   },
   "dependencies": {
     "@makerdao/currency": "0.9.9",

@@ -28,7 +28,7 @@ export function contractAddressesInfo(addresses) {
         decimals: 18
       }
     ],
-    [tokens.WMATIC]: [
+    [tokens.WBNB]: [
       {
         version: 1,
         address: addresses.SAI_GEM,
