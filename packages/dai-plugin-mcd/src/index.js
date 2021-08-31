@@ -83,6 +83,7 @@ export const PCSBUSDBTCB = createCurrency('PCSBUSDBTCB');
 export const PCSBUSDCAKE = createCurrency('PCSBUSDCAKE');
 export const PCSETHBTCB = createCurrency('PCSETHBTCB');
 export const PCSETHUSDC = createCurrency('PCSETHUSDC');
+export const APEMORBUSD = createCurrency('APEMORBUSD');
 export const STKCAKE = createCurrency('STKCAKE');
 export const STKBANANA = createCurrency('STKBANANA');
 export const STKPCSBNBCAKE = createCurrency('STKPCSBNBCAKE');
@@ -94,6 +95,7 @@ export const STKPCSBUSDBTCB = createCurrency('STKPCSBUSDBTCB');
 export const STKPCSBUSDCAKE = createCurrency('STKPCSBUSDCAKE');
 export const STKPCSETHBTCB = createCurrency('STKPCSETHBTCB');
 export const STKPCSETHUSDC = createCurrency('STKPCSETHUSDC');
+export const STKAPEMORBUSD = createCurrency('STKAPEMORBUSD');
 
 export const defaultCdpTypes = [
   { currency: STKCAKE, ilk: 'STKCAKE-A' },
@@ -107,6 +109,7 @@ export const defaultCdpTypes = [
   { currency: STKPCSBUSDCAKE, ilk: 'STKPCSBUSDCAKE-A' },
   { currency: STKPCSETHBTCB, ilk: 'STKPCSETHBTCB-A' },
   { currency: STKPCSETHUSDC, ilk: 'STKPCSETHUSDC-A' },
+  { currency: STKAPEMORBUSD, ilk: 'STKAPEMORBUSD-A' },
 ];
 
 export const ilkReserveMap = {
@@ -121,6 +124,7 @@ export const ilkReserveMap = {
   'STKPCSBUSDCAKE-A': '0x804678fa97d91B974ec2af3c843270886528a9E6',
   'STKPCSETHBTCB-A': '0xD171B26E4484402de70e3Ea256bE5A2630d7e88D',
   'STKPCSETHUSDC-A': '0xEa26B78255Df2bBC31C1eBf60010D78670185bD0',
+  'STKAPEMORBUSD-A': '0x33526eD690200663EAAbF28e1D8621e58898c5fd',
 };
 
 export const SAI = createCurrency('SAI');

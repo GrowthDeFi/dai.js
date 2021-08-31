@@ -80,6 +80,7 @@ module.exports = {
   PCSBUSDCAKE: require('./abis/DSToken.json'),
   PCSETHBTCB: require('./abis/DSToken.json'),
   PCSETHUSDC: require('./abis/DSToken.json'),
+  APEMORBUSD: require('./abis/DSToken.json'),
   STKCAKE: require('./abis/DSToken.json'),
   STKBANANA: require('./abis/DSToken.json'),
   STKPCSBNBCAKE: require('./abis/DSToken.json'),
@@ -90,5 +91,6 @@ module.exports = {
   STKPCSBUSDBTCB: require('./abis/DSToken.json'),
   STKPCSBUSDCAKE: require('./abis/DSToken.json'),
   STKPCSETHBTCB: require('./abis/DSToken.json'),
-  STKPCSETHUSDC: require('./abis/DSToken.json')
+  STKPCSETHUSDC: require('./abis/DSToken.json'),
+  STKAPEMORBUSD: require('./abis/DSToken.json')
 };
