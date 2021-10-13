@@ -109,9 +109,7 @@ export default {
           {
             currency: MKR,
             symbol: MKR.symbol,
-            address: contractAddresses[addressKey].SAI_GOV
-              ? contractAddresses[addressKey].SAI_GOV
-              : contractAddresses[addressKey].GOV
+            address: contractAddresses[addressKey].GOV
           },
           {
             currency: IOU,
