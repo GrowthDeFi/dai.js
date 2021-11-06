@@ -119,7 +119,6 @@ export const TDJAVAXLINK = createCurrency('TDJAVAXLINK');
 export const TDJAVAXMIM = createCurrency('TDJAVAXMIM');
 export const TDJUSDCJOE = createCurrency('TDJUSDCJOE');
 export const TDJUSDTJOE = createCurrency('TDJUSDTJOE');
-export const STKUSDC = createCurrency('STKUSDC');
 export const STKXJOE = createCurrency('STKXJOE');
 export const STKJAVAX = createCurrency('STKJAVAX');
 export const STKJWETH = createCurrency('STKJWETH');
@@ -150,7 +149,6 @@ export const defaultCdpTypes = [
   { currency: STKPCSETHUSDC, ilk: 'STKPCSETHUSDC-A' },
   { currency: STKAPEMORBUSD, ilk: 'STKAPEMORBUSD-A' },
 
-  { currency: STKUSDC, ilk: 'STKUSDC-A' },
   { currency: STKXJOE, ilk: 'STKXJOE-A' },
   { currency: STKJAVAX, ilk: 'STKJAVAX-A' },
   { currency: STKJWETH, ilk: 'STKJWETH-A' },
@@ -182,7 +180,6 @@ export const ilkReserveMap = {
   'STKPCSETHUSDC-A': '0xEa26B78255Df2bBC31C1eBf60010D78670185bD0',
   'STKAPEMORBUSD-A': '0x33526eD690200663EAAbF28e1D8621e58898c5fd',
 
-  'STKUSDC-A': '0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664',
   'STKXJOE-A': '0x57319d41F71E81F3c65F2a47CA4e001EbAFd4F33',
   'STKJAVAX-A': '0xC22F01ddc8010Ee05574028528614634684EC29e',
   'STKJWETH-A': '0x929f5caB61DFEc79a5431a7734a68D714C4633fa',

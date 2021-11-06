@@ -113,7 +113,6 @@ module.exports = {
   TDJAVAXMIM: require('./abis/DSToken.json'),
   TDJUSDCJOE: require('./abis/DSToken.json'),
   TDJUSDTJOE: require('./abis/DSToken.json'),
-  STKUSDC: require('./abis/DSToken.json'),
   STKXJOE: require('./abis/DSToken.json'),
   STKJAVAX: require('./abis/DSToken.json'),
   STKJWETH: require('./abis/DSToken.json'),
