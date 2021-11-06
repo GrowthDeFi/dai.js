@@ -1,7 +1,7 @@
 import { promiseWait } from '../utils';
 import TransactionLifeCycle from '../eth/TransactionLifeCycle';
 import debug from 'debug';
-import { BNB } from './Currency';
+import { AVAX } from './Currency';
 
 const log = debug('dai:TransactionObject');
 
@@ -83,7 +83,7 @@ export default class TransactionObject extends TransactionLifeCycle {
       this._blockNumberWhenMined = tx.blockNumber;
       this.receipt = await this._waitForReceipt();
       if (!!this.receipt.gasUsed && !!gasPrice) {
-        this._fees = BNB.wei(gasPrice).times(this.receipt.gasUsed);
+        this._fees = AVAX.wei(gasPrice).times(this.receipt.gasUsed);
       } else {
         /*
           console.warn('Unable to calculate transaction fee. Gas usage or price is unavailable. Usage = ',

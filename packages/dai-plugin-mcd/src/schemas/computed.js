@@ -450,7 +450,7 @@ export const balance = {
 export const allowance = {
   generate: (symbol, address) => ({
     dependencies: [
-      symbol === 'BNB'
+      symbol === 'AVAX'
         ? [[ALLOWANCE_AMOUNT]]
         : [TOKEN_ALLOWANCE, address, [PROXY_ADDRESS, address], symbol]
     ],

@@ -14,7 +14,7 @@ import {
 } from './utils';
 import has from 'lodash/has';
 import padStart from 'lodash/padStart';
-import { DAI, BNB, GNT, ilkReserveMap } from './index';
+import { DAI, AVAX, GNT, ilkReserveMap } from './index';
 const { CDP_MANAGER, CDP_TYPE, SYSTEM_DATA } = ServiceRoles;
 import getEventHistoryImpl from './EventHistory';
 
@@ -100,7 +100,7 @@ export default class CdpManager extends LocalService {
 
   @tracksTransactions
   async reclaimCollateral(id, dink, { promise }) {
-    dink = castAsCurrency(dink, BNB);
+    dink = castAsCurrency(dink, AVAX);
     return this.proxyActions.frob(
       this._managerAddress,
       this.getIdBytes(id),
@@ -138,7 +138,7 @@ export default class CdpManager extends LocalService {
     drawAmount = castAsCurrency(drawAmount, DAI);
     const proxyAddress = await this.get('proxy').ensureProxy({ promise });
     const jugAddress = this.get('smartContract').getContractAddress('MCD_JUG');
-    const isEth = BNB.isInstance(lockAmount);
+    const isEth = AVAX.isInstance(lockAmount);
     const isGnt = GNT.isInstance(lockAmount);
     const method = setMethod(isEth, isGnt, id);
     const args = [
@@ -178,7 +178,7 @@ export default class CdpManager extends LocalService {
   async lock(id, ilk, lockAmount, owner, { promise }) {
     if (!owner) owner = await this.getOwner(id);
     const proxyAddress = await this.get('proxy').ensureProxy({ promise });
-    const isEth = BNB.isInstance(lockAmount);
+    const isEth = AVAX.isInstance(lockAmount);
     const isGnt = GNT.isInstance(lockAmount);
     const method = `safeLock${isEth ? 'ETH' : 'Gem'}`;
     const args = [
@@ -219,7 +219,7 @@ export default class CdpManager extends LocalService {
 
   @tracksTransactionsWithOptions({ numArguments: 5 })
   wipeAndFree(id, ilk, wipeAmount = DAI(0), freeAmount, { promise }) {
-    const isEth = BNB.isInstance(freeAmount);
+    const isEth = AVAX.isInstance(freeAmount);
     const method = isEth ? 'wipeAndFreeETH' : 'wipeAndFreeGem';
     const args = [
       this._managerAddress,
@@ -283,7 +283,7 @@ export default class CdpManager extends LocalService {
 
   @tracksTransactions
   wipeAllAndFree(id, ilk, freeAmount, { promise }) {
-    const isEth = BNB.isInstance(freeAmount);
+    const isEth = AVAX.isInstance(freeAmount);
     const method = isEth ? 'wipeAllAndFreeETH' : 'wipeAllAndFreeGem';
     const args = [
       this._managerAddress,
@@ -367,7 +367,7 @@ export default class CdpManager extends LocalService {
   }
 
   _precision(amount, ilk) {
-    return amount.type.symbol === 'BNB'
+    return amount.type.symbol === 'AVAX'
       ? 'wei'
       : this.get(CDP_TYPE).getCdpType(amount.type, ilk).decimals;
   }

@@ -23,26 +23,20 @@ export const getCurrency = createGetCurrency(currencies);
 // the latter is convenient when you know what you want to use, and the former
 // is convenient when you are picking a currency based on a symbol from input
 
-export const BNB = currencies.BNB;
 export const AVAX = currencies.AVAX;
 export const MKR = currencies.MKR;
 export const PETH = currencies.PETH;
-export const WBNB = currencies.WBNB;
 export const WAVAX = currencies.WAVAX;
 export const USD = currencies.USD;
 
-export const USD_BNB = createCurrencyRatio(USD, BNB);
 export const USD_AVAX = createCurrencyRatio(USD, AVAX);
 export const USD_MKR = createCurrencyRatio(USD, MKR);
 export const USD_PETH = createCurrencyRatio(USD, PETH);
-export const USD_WBNB = createCurrencyRatio(USD, WBNB);
 export const USD_WAVAX = createCurrencyRatio(USD, WAVAX);
 
 Object.assign(currencies, {
-  USD_BNB,
   USD_AVAX,
   USD_MKR,
   USD_PETH,
-  USD_WBNB,
   USD_WAVAX
 });

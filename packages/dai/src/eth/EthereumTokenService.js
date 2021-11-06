@@ -43,7 +43,7 @@ export default class EthereumTokenService extends PrivateService {
       `Symbol "${symbol}" is not recognized`
     );
 
-    if (symbol === tokens.BNB) {
+    if (symbol === tokens.AVAX) {
       return new EtherToken(
         this.get('web3'),
         this.get('gas'),
@@ -62,7 +62,7 @@ export default class EthereumTokenService extends PrivateService {
       abi || ERC20TokenAbi
     );
 
-    if (symbol === tokens.WBNB) {
+    if (symbol === tokens.WAVAX) {
       return new WethToken(contract, this.get('web3'), decimals);
     }
 
@@ -120,10 +120,6 @@ export default class EthereumTokenService extends PrivateService {
     const tokenArray = [];
 
     for (let token in tokens) {
-      if (token === 'BNB') {
-        tokenArray['BNB'] = [1];
-      }
-
       if (token === 'AVAX') {
         tokenArray['AVAX'] = [1];
       }
