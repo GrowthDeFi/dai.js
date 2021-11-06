@@ -30,6 +30,7 @@ export default {
       mainnet: require('../contracts/addresses/mainnet.json'),
 
       bscmain: require('../contracts/addresses/bscmain.json'),
+      avaxmain: require('../contracts/addresses/avaxmain.json'),
       maticmain: require('../contracts/addresses/maticmain.json')
     };
 

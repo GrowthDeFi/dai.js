@@ -17,6 +17,7 @@ import BigNumber from 'bignumber.js';
 import wethAbi from '../contracts/abis/WETH9.json';
 
 import bscmainAddresses from '../contracts/addresses/bscmain.json';
+import avaxmainAddresses from '../contracts/addresses/avaxmain.json';
 import maticmainAddresses from '../contracts/addresses/maticmain.json';
 
 export const ServiceRoles = ServiceRoles_;
@@ -47,6 +48,7 @@ let addContracts = reduce(
           mainnet: mainnetAddresses[name],
 
           bscmain: bscmainAddresses[name],
+          avaxmain: avaxmainAddresses[name],
           maticmain: maticmainAddresses[name]
         }
       };
@@ -57,11 +59,14 @@ let addContracts = reduce(
 );
 
 export const BNB = createCurrency('BNB');
+export const AVAX = createCurrency('AVAX');
 export const MKR = createCurrency('MKR');
 export const USD = createCurrency('USD');
 export const USD_BNB = createCurrencyRatio(USD, BNB);
+export const USD_AVAX = createCurrencyRatio(USD, AVAX);
 
 export const WBNB = createCurrency('WBNB');
+export const WAVAX = createCurrency('WAVAX');
 export const DAI = createCurrency('DAI');
 
 // Casting for savings dai
@@ -97,6 +102,40 @@ export const STKPCSETHBTCB = createCurrency('STKPCSETHBTCB');
 export const STKPCSETHUSDC = createCurrency('STKPCSETHUSDC');
 export const STKAPEMORBUSD = createCurrency('STKAPEMORBUSD');
 
+export const MIM = createCurrency('MIM');
+export const JOE = createCurrency('JOE');
+export const XJOE = createCurrency('XJOE');
+export const JAVAX = createCurrency('JAVAX');
+export const JWETH = createCurrency('JWETH');
+export const JWBTC = createCurrency('JWBTC');
+export const JLINK = createCurrency('JLINK');
+export const TDJAVAXJOE = createCurrency('TDJAVAXJOE');
+export const TDJAVAXWETH = createCurrency('TDJAVAXWETH');
+export const TDJAVAXWBTC = createCurrency('TDJAVAXWBTC');
+export const TDJAVAXDAI = createCurrency('TDJAVAXDAI');
+export const TDJAVAXUSDC = createCurrency('TDJAVAXUSDC');
+export const TDJAVAXUSDT = createCurrency('TDJAVAXUSDT');
+export const TDJAVAXLINK = createCurrency('TDJAVAXLINK');
+export const TDJAVAXMIM = createCurrency('TDJAVAXMIM');
+export const TDJUSDCJOE = createCurrency('TDJUSDCJOE');
+export const TDJUSDTJOE = createCurrency('TDJUSDTJOE');
+export const STKUSDC = createCurrency('STKUSDC');
+export const STKXJOE = createCurrency('STKXJOE');
+export const STKJAVAX = createCurrency('STKJAVAX');
+export const STKJWETH = createCurrency('STKJWETH');
+export const STKJWBTC = createCurrency('STKJWBTC');
+export const STKJLINK = createCurrency('STKJLINK');
+export const STKTDJAVAXJOE = createCurrency('STKTDJAVAXJOE');
+export const STKTDJAVAXWETH = createCurrency('STKTDJAVAXWETH');
+export const STKTDJAVAXWBTC = createCurrency('STKTDJAVAXWBTC');
+export const STKTDJAVAXDAI = createCurrency('STKTDJAVAXDAI');
+export const STKTDJAVAXUSDC = createCurrency('STKTDJAVAXUSDC');
+export const STKTDJAVAXUSDT = createCurrency('STKTDJAVAXUSDT');
+export const STKTDJAVAXLINK = createCurrency('STKTDJAVAXLINK');
+export const STKTDJAVAXMIM = createCurrency('STKTDJAVAXMIM');
+export const STKTDJUSDCJOE = createCurrency('STKTDJUSDCJOE');
+export const STKTDJUSDTJOE = createCurrency('STKTDJUSDTJOE');
+
 export const defaultCdpTypes = [
   { currency: STKCAKE, ilk: 'STKCAKE-A' },
   { currency: STKBANANA, ilk: 'STKBANANA-A' },
@@ -110,6 +149,23 @@ export const defaultCdpTypes = [
   { currency: STKPCSETHBTCB, ilk: 'STKPCSETHBTCB-A' },
   { currency: STKPCSETHUSDC, ilk: 'STKPCSETHUSDC-A' },
   { currency: STKAPEMORBUSD, ilk: 'STKAPEMORBUSD-A' },
+
+  { currency: STKUSDC, ilk: 'STKUSDC-A' },
+  { currency: STKXJOE, ilk: 'STKXJOE-A' },
+  { currency: STKJAVAX, ilk: 'STKJAVAX-A' },
+  { currency: STKJWETH, ilk: 'STKJWETH-A' },
+  { currency: STKJWBTC, ilk: 'STKJWBTC-A' },
+  { currency: STKJLINK, ilk: 'STKJLINK-A' },
+  { currency: STKTDJAVAXJOE, ilk: 'STKTDJAVAXJOE-A' },
+  { currency: STKTDJAVAXWETH, ilk: 'STKTDJAVAXWETH-A' },
+  { currency: STKTDJAVAXWBTC, ilk: 'STKTDJAVAXWBTC-A' },
+  { currency: STKTDJAVAXDAI, ilk: 'STKTDJAVAXDAI-A' },
+  { currency: STKTDJAVAXUSDC, ilk: 'STKTDJAVAXUSDC-A' },
+  { currency: STKTDJAVAXUSDT, ilk: 'STKTDJAVAXUSDT-A' },
+  { currency: STKTDJAVAXLINK, ilk: 'STKTDJAVAXLINK-A' },
+  { currency: STKTDJAVAXMIM, ilk: 'STKTDJAVAXMIM-A' },
+  { currency: STKTDJUSDCJOE, ilk: 'STKTDJUSDCJOE-A' },
+  { currency: STKTDJUSDTJOE, ilk: 'STKTDJUSDTJOE-A' },
 ];
 
 export const ilkReserveMap = {
@@ -125,6 +181,23 @@ export const ilkReserveMap = {
   'STKPCSETHBTCB-A': '0xD171B26E4484402de70e3Ea256bE5A2630d7e88D',
   'STKPCSETHUSDC-A': '0xEa26B78255Df2bBC31C1eBf60010D78670185bD0',
   'STKAPEMORBUSD-A': '0x33526eD690200663EAAbF28e1D8621e58898c5fd',
+
+  'STKUSDC-A': '0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664',
+  'STKXJOE-A': '0x57319d41F71E81F3c65F2a47CA4e001EbAFd4F33',
+  'STKJAVAX-A': '0xC22F01ddc8010Ee05574028528614634684EC29e',
+  'STKJWETH-A': '0x929f5caB61DFEc79a5431a7734a68D714C4633fa',
+  'STKJWBTC-A': '0x3fE38b7b610C0ACD10296fEf69d9b18eB7a9eB1F',
+  'STKJLINK-A': '0x585E7bC75089eD111b656faA7aeb1104F5b96c15',
+  'STKTDJAVAXJOE-A': '0x454E67025631C065d3cFAD6d71E6892f74487a15',
+  'STKTDJAVAXWETH-A': '0xFE15c2695F1F920da45C30AAE47d11dE51007AF9',
+  'STKTDJAVAXWBTC-A': '0xd5a37dC5C9A396A03dd1136Fc76A1a02B1c88Ffa',
+  'STKTDJAVAXDAI-A': '0x87Dee1cC9FFd464B79e058ba20387c1984aed86a',
+  'STKTDJAVAXUSDC-A': '0xA389f9430876455C36478DeEa9769B7Ca4E3DDB1',
+  'STKTDJAVAXUSDT-A': '0xeD8CBD9F0cE3C6986b22002F03c6475CEb7a6256',
+  'STKTDJAVAXLINK-A': '0x6F3a0C89f611Ef5dC9d96650324ac633D02265D3',
+  'STKTDJAVAXMIM-A': '0x781655d802670bbA3c89aeBaaEa59D3182fD755D',
+  'STKTDJUSDCJOE-A': '0x67926d973cD8eE876aD210fAaf7DFfA99E414aCf',
+  'STKTDJUSDTJOE-A': '0x1643de2efB8e35374D796297a9f95f64C082a8ce',
 };
 
 export const SAI = createCurrency('SAI');
@@ -138,6 +211,7 @@ export const defaultTokens = [
     ...defaultCdpTypes.map(type => type.currency),
     DAI,
     WBNB,
+    WAVAX,
     SAI,
     DSR_DAI
   ])
@@ -177,6 +251,7 @@ export const McdPlugin = {
         erc20: [
           { currency: DAI, address: addContracts.MCD_DAI.address },
           { currency: WBNB, address: addContracts.BNB.address, abi: wethAbi },
+          { currency: WAVAX, address: addContracts.AVAX.address, abi: wethAbi },
           ...tokens
         ]
       },

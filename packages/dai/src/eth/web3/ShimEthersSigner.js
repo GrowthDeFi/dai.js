@@ -2,7 +2,18 @@
 
 import { promisify } from '../../utils';
 
+const CHAIN_ID = {
+  '1': '43114', // avaxmain
+};
+
+const GAS_PRICE = {
+  '1': '25000000000', // avaxmain
+  '56': '5000000000', // bscmain
+  '43114': '25000000000', // avaxmain
+};
+
 export default function makeSigner(web3Service) {
+  const netId = web3Service.network;
   const provider = web3Service.web3Provider();
   const call = promisify(web3Service._web3.eth.call);
   return {
@@ -11,8 +22,8 @@ export default function makeSigner(web3Service) {
     sendTransaction: tx => {
       return web3Service.sendTransaction({
         ...tx,
-        chainId: 56, // TODO this is a hack, should find the proper way to pass in this parameter
-        gasPrice: '5000000000',
+        chainId: CHAIN_ID[netId] || netId,
+        gasPrice: GAS_PRICE[netId] || '1000000000',
         from: web3Service.currentAddress()
       });
     },

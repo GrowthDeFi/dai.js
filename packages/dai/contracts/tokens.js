@@ -1,6 +1,8 @@
 export default {
   MKR: 'MKR',
   WBNB: 'WBNB',
+  WAVAX: 'WAVAX',
   PETH: 'PETH',
-  BNB: 'BNB'
+  BNB: 'BNB',
+  AVAX: 'AVAX'
 };

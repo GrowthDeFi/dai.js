@@ -6,6 +6,7 @@ import mainnetAddresses from './addresses/mainnet.json';
 import testnetAddresses from './addresses/testnet.json';
 
 import bscmainAddresses from './addresses/bscmain.json';
+import avaxmainAddresses from './addresses/avaxmain.json';
 import maticmainAddresses from './addresses/maticmain.json';
 
 const addressMapping = {
@@ -14,6 +15,7 @@ const addressMapping = {
   testnet: testnetAddresses,
 
   bscmain: bscmainAddresses,
+  avaxmain: avaxmainAddresses,
   maticmain: maticmainAddresses
 };
 
@@ -29,6 +31,14 @@ export function contractAddressesInfo(addresses) {
       }
     ],
     [tokens.WBNB]: [
+      {
+        version: 1,
+        address: addresses.SAI_GEM,
+        abi: abis.dappHub.dsEthToken,
+        decimals: 18
+      }
+    ],
+    [tokens.WAVAX]: [
       {
         version: 1,
         address: addresses.SAI_GEM,

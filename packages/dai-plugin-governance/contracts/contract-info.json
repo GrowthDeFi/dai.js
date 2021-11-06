@@ -4,6 +4,7 @@
       "mainnet": "0x487813",
       "kovan": "0x649575",
       "bscmain": "1",
+      "avaxmain": "1",
       "maticmain": "1"
     },
     "events": {
@@ -19,6 +20,7 @@
       "mainnet": "8928171",
       "kovan": "14764552",
       "bscmain": "10429359",
+      "avaxmain": "6570342",
       "maticmain": "17189507"
     },
     "events": {

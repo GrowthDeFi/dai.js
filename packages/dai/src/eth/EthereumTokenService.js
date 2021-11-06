@@ -124,6 +124,10 @@ export default class EthereumTokenService extends PrivateService {
         tokenArray['BNB'] = [1];
       }
 
+      if (token === 'AVAX') {
+        tokenArray['AVAX'] = [1];
+      }
+
       if (token in mapping) {
         let versionArray = [];
         mapping[token].forEach(e => {
