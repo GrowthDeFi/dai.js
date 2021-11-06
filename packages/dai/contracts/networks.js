@@ -30,14 +30,6 @@ export function contractAddressesInfo(addresses) {
         decimals: 18
       }
     ],
-    [tokens.WBNB]: [
-      {
-        version: 1,
-        address: addresses.SAI_GEM,
-        abi: abis.dappHub.dsEthToken,
-        decimals: 18
-      }
-    ],
     [tokens.WAVAX]: [
       {
         version: 1,

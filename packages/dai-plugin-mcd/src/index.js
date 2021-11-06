@@ -71,8 +71,6 @@ export const DSR_DAI = createCurrency('DSR-DAI');
 
 export const GNT = createCurrency('GNT');
 export const ETH = createCurrency('ETH');
-export const BTCB = createCurrency('BTCB');
-export const BUSD = createCurrency('BUSD');
 export const USDC = createCurrency('USDC');
 
 export const MIM = createCurrency('MIM');

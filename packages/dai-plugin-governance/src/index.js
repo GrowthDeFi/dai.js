@@ -24,7 +24,7 @@ import SpellService from './SpellService';
 
 export { MKR, IOU };
 export default {
-  addConfig: function(config, { network = 'bscmain', staging = false }) {
+  addConfig: function(config, { network = 'avaxmain', staging = false }) {
     const contractAddresses = {
       kovan: require('../contracts/addresses/kovan.json'),
       mainnet: require('../contracts/addresses/mainnet.json'),
