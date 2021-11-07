@@ -70,9 +70,11 @@ export const DAI = createCurrency('DAI');
 export const DSR_DAI = createCurrency('DSR-DAI');
 
 export const GNT = createCurrency('GNT');
-export const ETH = createCurrency('ETH');
+export const WETH = createCurrency('WETH');
+export const WBTC = createCurrency('WBTC');
 export const USDC = createCurrency('USDC');
-
+export const USDT = createCurrency('USDT');
+export const LINK = createCurrency('LINK');
 export const MIM = createCurrency('MIM');
 export const JOE = createCurrency('JOE');
 export const XJOE = createCurrency('XJOE');
