@@ -160,5 +160,6 @@ export default [
   { name: 'test', networkId: TESTNET_ID, contracts: contractInfo('testnet') },
 
   { name: 'bscmain', networkId: 56, contracts: contractInfo('bscmain') },
+  { name: 'avaxmain', networkId: 1, contracts: contractInfo('avaxmain') },
   { name: 'maticmain', networkId: 137, contracts: contractInfo('maticmain') }
 ];
