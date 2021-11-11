@@ -110,10 +110,10 @@ export const STKTDJUSDTJOE = createCurrency('STKTDJUSDTJOE');
 
 export const defaultCdpTypes = [
   { currency: STKXJOE, ilk: 'STKXJOE-A' },
-  { currency: STKJAVAX, ilk: 'STKJAVAX-A' decimals: 8 },
-  { currency: STKJWETH, ilk: 'STKJWETH-A' decimals: 8 },
-  { currency: STKJWBTC, ilk: 'STKJWBTC-A' decimals: 8 },
-  { currency: STKJLINK, ilk: 'STKJLINK-A' decimals: 8 },
+  { currency: STKJAVAX, ilk: 'STKJAVAX-A', decimals: 8 },
+  { currency: STKJWETH, ilk: 'STKJWETH-A', decimals: 8 },
+  { currency: STKJWBTC, ilk: 'STKJWBTC-A', decimals: 8 },
+  { currency: STKJLINK, ilk: 'STKJLINK-A', decimals: 8 },
   { currency: STKTDJAVAXJOE, ilk: 'STKTDJAVAXJOE-A' },
   { currency: STKTDJAVAXWETH, ilk: 'STKTDJAVAXWETH-A' },
   { currency: STKTDJAVAXWBTC, ilk: 'STKTDJAVAXWBTC-A' },
