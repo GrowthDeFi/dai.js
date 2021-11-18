@@ -81,7 +81,7 @@ export default class Web3Service extends PrivateService {
     });
     this._transactionSettings = settings.transactionSettings;
     this._confirmedBlockCount = settings.confirmedBlockCount || 5;
-    this._pollingInterval = settings.pollingInterval || 4000;
+    this._pollingInterval = settings.pollingInterval || 16000;
   }
 
   async connect() {
