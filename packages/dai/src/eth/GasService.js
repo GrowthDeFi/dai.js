@@ -3,12 +3,12 @@ import map from 'lodash/map';
 import fetch from 'isomorphic-fetch';
 
 export const API_URL =
-  'https://ethgasstation.info/json/ethgasAPI.json?api-key=';
+  'https://gavax.blockscan.com/gasapi.ashx?method=gasoracle&apikey=';
 
 export default class GasService extends PublicService {
   constructor(name = 'gas') {
     super(name, ['web3']);
-    this._fallback = 4000000;
+    this._fallback = 25000000;
     this._multiplier = 1.55;
     this._transactionSpeed = 'fast';
   }
@@ -48,8 +48,15 @@ export default class GasService extends PublicService {
 
   async fetchGasStationData() {
     try {
-      const response = await fetch(API_URL + this._settings.apiKey);
-      return response.json();
+      const response = await fetch(API_URL + (this._settings.apiKey || 'key'));
+      const data = response.json();
+      if (data.message !== 'OK') throw new Error('Invalid Gas API response: ' + data.message);
+      return {
+        fast: Number(data.result.FastGasPrice) * 10,
+        fastest: Number(data.result.FastGasPrice) * 10,
+        safeLow: Number(data.result.SafeGasPrice) * 10,
+        average: Number(data.result.ProposeGasPrice) * 10,
+      };
     } catch (err) {
       console.error('Error fetching gas data; disabling preset gas price', err);
       this.disablePrice = true;
