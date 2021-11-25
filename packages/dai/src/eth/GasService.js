@@ -48,9 +48,11 @@ export default class GasService extends PublicService {
 
   async fetchGasStationData() {
     try {
-      const response = await fetch(API_URL + (this._settings.apiKey || 'key'));
+      const url = API_URL + (this._settings.apiKey || 'key');
+      const response = await fetch(url);
       const data = response.json();
-      if (data.message !== 'OK') throw new Error('Invalid Gas API response: ' + data.message);
+      console.log('Gas API', JSON.stringify(data, undefined, 2));
+      if (data.message !== 'OK') throw new Error('Invalid Gas API response: ' + data.message + ' for ' + url);
       return {
         fast: Number(data.result.FastGasPrice) * 10,
         fastest: Number(data.result.FastGasPrice) * 10,
