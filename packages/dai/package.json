@@ -58,7 +58,7 @@
     "@babel/runtime": "^7.3.4",
     "@makerdao/currency": "0.9.9",
     "@makerdao/multicall": "^0.11.0",
-    "@growthdefi/moravax-services-core": "1.0.26",
+    "@makerdao/services-core": "^0.9.9",
     "@makerdao/test-helpers": "^0.2.1",
     "assert": "^1.4.1",
     "bignumber.js": "^7.2.1",

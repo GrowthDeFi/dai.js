@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@makerdao/currency": "0.9.9",
-    "@growthdefi/moravax-services-core": "1.0.26",
+    "@makerdao/services-core": "^0.10.0",
     "assert": "^2.0.0",
     "debug": "^4.1.1",
     "ramda": "^0.25.0"
