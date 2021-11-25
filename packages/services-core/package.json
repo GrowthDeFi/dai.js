@@ -1,7 +1,7 @@
 {
   "name": "@growthdefi/mor-services-core",
   "description": "Dependency injection framework",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "license": "MIT",
   "main": "dist/index.js",
   "unpkg": "umd/index.js",

@@ -10,7 +10,7 @@ export default class GasService extends PublicService {
     super(name, ['web3']);
     this._fallback = 5000000;
     this._multiplier = 1.55;
-    this._transactionSpeed = 'fast';
+    this._transactionSpeed = 'safeLow';
   }
 
   initialize(settings) {
@@ -50,8 +50,7 @@ export default class GasService extends PublicService {
     try {
       const url = API_URL + (this._settings.apiKey || 'key');
       const response = await fetch(url);
-      const data = response.json();
-      console.log('Gas API', JSON.stringify(data, undefined, 2));
+      const data = await response.json();
       if (data.message !== 'OK') throw new Error('Invalid Gas API response: ' + data.message + ' for ' + url);
       return {
         fast: Number(data.result.FastGasPrice) * 10,

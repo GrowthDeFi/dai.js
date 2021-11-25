@@ -1,6 +1,6 @@
 {
   "name": "@growthdefi/mor",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "contributors": [
     "Wouter Kampmann <wouter@makerdao.com>",
     "Sean Brennan <sean@makerdao.com>",
@@ -58,7 +58,7 @@
     "@babel/runtime": "^7.3.4",
     "@makerdao/currency": "0.9.9",
     "@makerdao/multicall": "^0.11.0",
-    "@growthdefi/mor-services-core": "1.0.14",
+    "@growthdefi/mor-services-core": "1.0.15",
     "@makerdao/test-helpers": "^0.2.1",
     "assert": "^1.4.1",
     "bignumber.js": "^7.2.1",
