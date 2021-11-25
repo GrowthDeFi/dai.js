@@ -1,7 +1,7 @@
 {
   "name": "@growthdefi/moravax-plugin-mcd",
   "description": "Plugin to add Multi-Collateral Dai support to dai.js",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "license": "MIT",
   "main": "dist/index.js",
   "unpkg": "umd/index.js",
@@ -20,11 +20,11 @@
     "test:integration": "export NETWORK='test' && yarn test --config ./test/config/jestIntegrationConfig.json"
   },
   "peerDependencies": {
-    "@growthdefi/moravax": "1.0.25"
+    "@growthdefi/moravax": "1.0.26"
   },
   "dependencies": {
     "@makerdao/currency": "0.9.9",
-    "@growthdefi/moravax-services-core": "1.0.25",
+    "@growthdefi/moravax-services-core": "1.0.26",
     "bignumber.js": "^8.1.1",
     "rxjs": "^6.5.4"
   },

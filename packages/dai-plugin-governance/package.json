@@ -1,7 +1,7 @@
 {
   "name": "@growthdefi/moravax-plugin-governance",
   "description": "A dai.js plugin for adding MKR governance support to dapps.",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -29,17 +29,17 @@
   },
   "dependencies": {
     "@makerdao/currency": "0.9.9",
-    "@growthdefi/moravax-services-core": "1.0.25",
+    "@growthdefi/moravax-services-core": "1.0.26",
     "assert": "^2.0.0",
     "debug": "^4.1.1",
     "ramda": "^0.25.0"
   },
   "peerDependencies": {
-    "@growthdefi/moravax": "1.0.25"
+    "@growthdefi/moravax": "1.0.26"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
-    "@growthdefi/moravax": "1.0.25",
+    "@growthdefi/moravax": "1.0.26",
     "@makerdao/dai-plugin-config": "^0.2.14-rc.1",
     "web3-utils": "^1.2.6"
   }
