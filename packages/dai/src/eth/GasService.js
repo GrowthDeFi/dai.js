@@ -3,14 +3,14 @@ import map from 'lodash/map';
 import fetch from 'isomorphic-fetch';
 
 export const API_URL =
-  'https://gbsc.blockscan.com/gasapi.ashx?method=gasoracle&apikey=';
+  'https://gavax.blockscan.com/gasapi.ashx?method=gasoracle&apikey=';
 
 export default class GasService extends PublicService {
   constructor(name = 'gas') {
     super(name, ['web3']);
-    this._fallback = 5000000;
+    this._fallback = 25000000;
     this._multiplier = 1.55;
-    this._transactionSpeed = 'safeLow';
+    this._transactionSpeed = 'fast';
   }
 
   initialize(settings) {
