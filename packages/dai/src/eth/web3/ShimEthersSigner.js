@@ -12,7 +12,7 @@ export default function makeSigner(web3Service) {
       return web3Service.sendTransaction({
         ...tx,
         chainId: 56, // TODO this is a hack, should find the proper way to pass in this parameter
-        gasPrice: '5000000',
+        gasPrice: '5000000000',
         from: web3Service.currentAddress()
       });
     },
