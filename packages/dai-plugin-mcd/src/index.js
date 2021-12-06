@@ -45,7 +45,7 @@ let addContracts = reduce(
           kovan: kovanAddresses[name],
           mainnet: mainnetAddresses[name],
 
-          bscmain: bscmainAddresses[name],
+          bscmain: bscmainAddresses[name]
         }
       };
     }

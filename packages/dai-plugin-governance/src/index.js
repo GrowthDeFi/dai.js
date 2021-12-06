@@ -29,7 +29,7 @@ export default {
       kovan: require('../contracts/addresses/kovan.json'),
       mainnet: require('../contracts/addresses/mainnet.json'),
 
-      bscmain: require('../contracts/addresses/bscmain.json'),
+      bscmain: require('../contracts/addresses/bscmain.json')
     };
 
     try {
