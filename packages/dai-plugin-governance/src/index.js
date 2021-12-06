@@ -29,9 +29,7 @@ export default {
       kovan: require('../contracts/addresses/kovan.json'),
       mainnet: require('../contracts/addresses/mainnet.json'),
 
-      bscmain: require('../contracts/addresses/bscmain.json'),
-      avaxmain: require('../contracts/addresses/avaxmain.json'),
-      maticmain: require('../contracts/addresses/maticmain.json')
+      avaxmain: require('../contracts/addresses/avaxmain.json')
     };
 
     try {

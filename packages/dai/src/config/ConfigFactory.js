@@ -10,9 +10,7 @@ import merge from 'lodash/merge';
 import { mergeServiceConfig } from './index';
 import { AccountType } from '../utils/constants';
 
-import bscmain from './presets/bscmain.json';
 import avaxmain from './presets/avaxmain.json';
-import maticmain from './presets/maticmain.json';
 
 class ConfigPresetNotFoundError extends Error {
   constructor(message) {
@@ -64,14 +62,8 @@ function loadPreset(name) {
       preset = inject;
       break;
 
-    case 'bscmain':
-      preset = bscmain;
-      break;
     case 'avaxmain':
       preset = avaxmain;
-      break;
-    case 'maticmain':
-      preset = maticmain;
       break;
 
     default:

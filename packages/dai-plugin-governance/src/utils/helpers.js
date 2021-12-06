@@ -1,6 +1,6 @@
 import { createGetCurrency } from '@makerdao/currency';
 import BigNumber from 'bignumber.js';
-import { MKR, STAGING_MAINNET_URL, KOVAN_URL, MAINNET_URL, BSCMAIN_URL, AVAXMAIN_URL, MATICMAIN_URL } from './constants';
+import { MKR, STAGING_MAINNET_URL, KOVAN_URL, MAINNET_URL, AVAXMAIN_URL } from './constants';
 
 /**
  * @desc get network name
@@ -9,18 +9,16 @@ import { MKR, STAGING_MAINNET_URL, KOVAN_URL, MAINNET_URL, BSCMAIN_URL, AVAXMAIN
  */
 export const netIdToName = id => {
   switch (parseInt(id, 10)) {
+
     case 1: // netId
       // return 'mainnet';
       return 'avaxmain';
+
     case 42:
       return 'kovan';
 
-    case 56:
-      return 'bscmain';
     case 43114: // chainId
       return 'avaxmain';
-    case 137:
-      return 'maticmain';
 
     case 999:
       return 'ganache';
@@ -31,18 +29,16 @@ export const netIdToName = id => {
 
 export const netIdtoSpockUrl = id => {
   switch (parseInt(id, 10)) {
+
     case 1: // netId
       // return MAINNET_URL;
       return AVAXMAIN_URL;
+
     case 42:
       return KOVAN_URL;
 
-    case 56:
-      return BSCMAIN_URL;
     case 43114: // chainId
       return AVAXMAIN_URL;
-    case 137:
-      return MATICMAIN_URL;
 
     default:
       return STAGING_MAINNET_URL;
@@ -51,18 +47,16 @@ export const netIdtoSpockUrl = id => {
 
 export const netIdtoSpockUrlStaging = id => {
   switch (parseInt(id, 10)) {
+
     case 1: // netId
       // return STAGING_MAINNET_URL;
       return AVAXMAIN_URL;
+
     case 42:
       return KOVAN_URL;
 
-    case 56:
-      return BSCMAIN_URL;
     case 43114: // chainId
       return AVAXMAIN_URL;
-    case 137:
-      return MATICMAIN_URL;
 
     default:
       return STAGING_MAINNET_URL;
