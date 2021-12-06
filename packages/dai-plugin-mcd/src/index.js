@@ -73,6 +73,11 @@ export const defaultCdpTypes = [
   { currency: ETH, ilk: 'ETH-A' },
 ];
 
+export const ilkReserveMap = {
+  'MATIC-A': '0x0000000000000000000000000000000000000000',
+  'ETH-A': '0x0000000000000000000000000000000000000000',
+};
+
 export const SAI = createCurrency('SAI');
 
 export const ALLOWANCE_AMOUNT = BigNumber(
