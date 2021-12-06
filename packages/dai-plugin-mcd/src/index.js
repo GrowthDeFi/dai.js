@@ -16,7 +16,6 @@ import { ServiceRoles as ServiceRoles_ } from './constants';
 import BigNumber from 'bignumber.js';
 import wethAbi from '../contracts/abis/WETH9.json';
 
-import bscmainAddresses from '../contracts/addresses/bscmain.json';
 import maticmainAddresses from '../contracts/addresses/maticmain.json';
 
 export const ServiceRoles = ServiceRoles_;
@@ -46,7 +45,6 @@ let addContracts = reduce(
           kovan: kovanAddresses[name],
           mainnet: mainnetAddresses[name],
 
-          bscmain: bscmainAddresses[name],
           maticmain: maticmainAddresses[name]
         }
       };

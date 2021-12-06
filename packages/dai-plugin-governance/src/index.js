@@ -29,7 +29,6 @@ export default {
       kovan: require('../contracts/addresses/kovan.json'),
       mainnet: require('../contracts/addresses/mainnet.json'),
 
-      bscmain: require('../contracts/addresses/bscmain.json'),
       maticmain: require('../contracts/addresses/maticmain.json')
     };
 
@@ -109,9 +108,7 @@ export default {
           {
             currency: MKR,
             symbol: MKR.symbol,
-            address: contractAddresses[addressKey].SAI_GOV
-              ? contractAddresses[addressKey].SAI_GOV
-              : contractAddresses[addressKey].GOV
+            address: contractAddresses[addressKey].GOV
           },
           {
             currency: IOU,

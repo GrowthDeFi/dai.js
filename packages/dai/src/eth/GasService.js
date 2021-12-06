@@ -3,7 +3,7 @@ import map from 'lodash/map';
 import fetch from 'isomorphic-fetch';
 
 export const API_URL =
-  'https://ethgasstation.info/json/ethgasAPI.json?api-key=';
+  'https://gpoly.blockscan.com/gasapi.ashx?method=gasoracle&apikey=';
 
 export default class GasService extends PublicService {
   constructor(name = 'gas') {
@@ -48,8 +48,16 @@ export default class GasService extends PublicService {
 
   async fetchGasStationData() {
     try {
-      const response = await fetch(API_URL + this._settings.apiKey);
-      return response.json();
+      const url = API_URL + (this._settings.apiKey || 'key');
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data.message !== 'OK') throw new Error('Invalid Gas API response: ' + data.message + ' for ' + url);
+      return {
+        fast: Number(data.result.FastGasPrice) * 10,
+        fastest: Number(data.result.FastGasPrice) * 10,
+        safeLow: Number(data.result.SafeGasPrice) * 10,
+        average: Number(data.result.ProposeGasPrice) * 10,
+      };
     } catch (err) {
       console.error('Error fetching gas data; disabling preset gas price', err);
       this.disablePrice = true;
