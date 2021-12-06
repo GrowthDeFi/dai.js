@@ -3,8 +3,7 @@
     "inception_block": {
       "mainnet": "0x487813",
       "kovan": "0x649575",
-      "bscmain": "1",
-      "maticmain": "1"
+      "bscmain": "1"
     },
     "events": {
       "etch": "0x4f0892983790f53eea39a7a496f6cb40e8811b313871337b6a761efc6c67bb1f",
@@ -18,8 +17,7 @@
     "inception_block": {
       "mainnet": "8928171",
       "kovan": "14764552",
-      "bscmain": "10429359",
-      "maticmain": "17189507"
+      "bscmain": "10429359"
     },
     "events": {
       "exec": "0x168ccd6700000000000000000000000000000000000000000000000000000000",

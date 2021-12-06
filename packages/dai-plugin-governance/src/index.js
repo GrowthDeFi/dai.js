@@ -30,7 +30,6 @@ export default {
       mainnet: require('../contracts/addresses/mainnet.json'),
 
       bscmain: require('../contracts/addresses/bscmain.json'),
-      maticmain: require('../contracts/addresses/maticmain.json')
     };
 
     try {
