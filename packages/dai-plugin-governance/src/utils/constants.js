@@ -23,4 +23,4 @@ export const STAGING_MAINNET_URL =
   'https://qa-gov-db.makerfoundation.com/api/v1';
 export const MAINNET_URL = 'https://gov-db.makerfoundation.com/api/v1';
 
-export const BSCMAIN_URL = 'https://mor-gov-db.growthdefi.com/api/v1';
+export const BSCMAIN_URL = 'https://bsc-gov-db.growthdefi.com/api/v1';
