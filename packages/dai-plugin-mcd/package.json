@@ -20,7 +20,7 @@
     "test:integration": "export NETWORK='test' && yarn test --config ./test/config/jestIntegrationConfig.json"
   },
   "peerDependencies": {
-    "@growthdefi/moravax": "1.0.29"
+    "@growthdefi/moravax": "1.0.30"
   },
   "dependencies": {
     "@makerdao/currency": "0.9.9",
