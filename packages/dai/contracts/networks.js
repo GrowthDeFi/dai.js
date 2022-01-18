@@ -139,7 +139,7 @@ export function contractInfo(network) {
 export const TESTNET_ID = 999;
 
 export default [
-  // { name: 'mainnet', networkId: 1, contracts: contractInfo('mainnet') },
+  { name: 'mainnet', networkId: 1, contracts: contractInfo('mainnet') },
   { name: 'morden', networkId: 2 },
   { name: 'ropsten', networkId: 3 },
   {

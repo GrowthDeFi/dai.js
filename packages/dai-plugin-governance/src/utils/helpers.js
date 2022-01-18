@@ -9,10 +9,8 @@ import { MKR, STAGING_MAINNET_URL, KOVAN_URL, MAINNET_URL, AVAXMAIN_URL } from '
  */
 export const netIdToName = id => {
   switch (parseInt(id, 10)) {
-
     case 1:
       return 'mainnet';
-
     case 42:
       return 'kovan';
 
@@ -28,10 +26,8 @@ export const netIdToName = id => {
 
 export const netIdtoSpockUrl = id => {
   switch (parseInt(id, 10)) {
-
     case 1:
       return MAINNET_URL;
-
     case 42:
       return KOVAN_URL;
 
@@ -45,10 +41,8 @@ export const netIdtoSpockUrl = id => {
 
 export const netIdtoSpockUrlStaging = id => {
   switch (parseInt(id, 10)) {
-
     case 1:
       return STAGING_MAINNET_URL;
-
     case 42:
       return KOVAN_URL;
 
