@@ -155,5 +155,5 @@ export default [
   { name: 'test', networkId: 1337, contracts: contractInfo('testnet') },
   { name: 'test', networkId: TESTNET_ID, contracts: contractInfo('testnet') },
 
-  { name: 'avaxmain', networkId: 1, contracts: contractInfo('avaxmain') }
+  { name: 'avaxmain', networkId: 43114, contracts: contractInfo('avaxmain') }
 ];

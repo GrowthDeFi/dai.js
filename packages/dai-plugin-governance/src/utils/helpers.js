@@ -10,14 +10,13 @@ import { MKR, STAGING_MAINNET_URL, KOVAN_URL, MAINNET_URL, AVAXMAIN_URL } from '
 export const netIdToName = id => {
   switch (parseInt(id, 10)) {
 
-    case 1: // netId
-      // return 'mainnet';
-      return 'avaxmain';
+    case 1:
+      return 'mainnet';
 
     case 42:
       return 'kovan';
 
-    case 43114: // chainId
+    case 43114:
       return 'avaxmain';
 
     case 999:
@@ -30,14 +29,13 @@ export const netIdToName = id => {
 export const netIdtoSpockUrl = id => {
   switch (parseInt(id, 10)) {
 
-    case 1: // netId
-      // return MAINNET_URL;
-      return AVAXMAIN_URL;
+    case 1:
+      return MAINNET_URL;
 
     case 42:
       return KOVAN_URL;
 
-    case 43114: // chainId
+    case 43114:
       return AVAXMAIN_URL;
 
     default:
@@ -48,14 +46,13 @@ export const netIdtoSpockUrl = id => {
 export const netIdtoSpockUrlStaging = id => {
   switch (parseInt(id, 10)) {
 
-    case 1: // netId
-      // return STAGING_MAINNET_URL;
-      return AVAXMAIN_URL;
+    case 1:
+      return STAGING_MAINNET_URL;
 
     case 42:
       return KOVAN_URL;
 
-    case 43114: // chainId
+    case 43114:
       return AVAXMAIN_URL;
 
     default:
