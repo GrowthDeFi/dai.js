@@ -10,12 +10,12 @@ export const ALLOWANCE_AMOUNT = BigNumber(
 
 export const tokenBalance = {
   generate: (address, symbol) => {
-    if (symbol === 'WETH') symbol = 'WETH';
+    if (symbol === 'WFTM') symbol = 'WFTM';
     if (symbol === 'DAI') symbol = 'DAI';
 
     const currencyToken = getMcdToken(symbol);
     const contract =
-      symbol === 'DAI' ? 'MCD_DAI' : symbol === 'WETH' ? 'ETH' : symbol;
+      symbol === 'DAI' ? 'MCD_DAI' : symbol === 'WFTM' ? 'FTM' : symbol;
 
     if (!currencyToken)
       throw new Error(`${symbol} token is not part of the default tokens list`);
@@ -26,9 +26,9 @@ export const tokenBalance = {
 
     return {
       id: `balance.${symbol}.${address}`,
-      contract: symbol === 'ETH' ? 'MULTICALL' : contract,
+      contract: symbol === 'FTM' ? 'MULTICALL' : contract,
       call: [
-        symbol === 'ETH'
+        symbol === 'FTM'
           ? 'getEthBalance(address)(uint256)'
           : 'balanceOf(address)(uint256)',
         address
@@ -60,12 +60,12 @@ export const tokenBalances = {
 
 export const tokenAllowanceBase = {
   generate: (address, proxyAddress, symbol) => {
-    if (symbol === 'ETH' || symbol === 'DSR-DAI')
+    if (symbol === 'FTM' || symbol === 'DSR-DAI')
       throw new Error(`${symbol} does not require an allowance to be set`);
 
     const currencyToken = getMcdToken(symbol);
     const contract =
-      symbol === 'DAI' ? 'MCD_DAI' : symbol === 'WETH' ? 'ETH' : symbol;
+      symbol === 'DAI' ? 'MCD_DAI' : symbol === 'WFTM' ? 'FTM' : symbol;
     if (!currencyToken)
       throw new Error(`${symbol} token is not part of the default tokens list`);
 
@@ -81,7 +81,7 @@ export const tokenAllowanceBase = {
 export const tokenAllowance = {
   generate: (address, proxyAddress, symbol) => ({
     dependencies: [
-      symbol === 'ETH'
+      symbol === 'FTM'
         ? [[ALLOWANCE_AMOUNT]]
         : [TOKEN_ALLOWANCE_BASE, address, proxyAddress, symbol]
     ],
@@ -102,7 +102,7 @@ export const adapterBalance = {
   generate: collateralTypeName => ({
     dependencies: ({ get }) => {
       let tokenSymbol = collateralTypeName.split('-')[0];
-      tokenSymbol = tokenSymbol === 'ETH' ? 'WETH' : tokenSymbol;
+      tokenSymbol = tokenSymbol === 'FTM' ? 'WFTM' : tokenSymbol;
       return [
         [
           TOKEN_BALANCE,

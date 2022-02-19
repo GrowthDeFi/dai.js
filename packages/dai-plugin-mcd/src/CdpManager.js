@@ -14,7 +14,7 @@ import {
 } from './utils';
 import has from 'lodash/has';
 import padStart from 'lodash/padStart';
-import { DAI, ETH, GNT } from './index';
+import { DAI, FTM, GNT, ilkReserveMap } from './index';
 const { CDP_MANAGER, CDP_TYPE, SYSTEM_DATA } = ServiceRoles;
 import getEventHistoryImpl from './EventHistory';
 
@@ -100,7 +100,7 @@ export default class CdpManager extends LocalService {
 
   @tracksTransactions
   async reclaimCollateral(id, dink, { promise }) {
-    dink = castAsCurrency(dink, ETH);
+    dink = castAsCurrency(dink, FTM);
     return this.proxyActions.frob(
       this._managerAddress,
       this.getIdBytes(id),
@@ -138,7 +138,7 @@ export default class CdpManager extends LocalService {
     drawAmount = castAsCurrency(drawAmount, DAI);
     const proxyAddress = await this.get('proxy').ensureProxy({ promise });
     const jugAddress = this.get('smartContract').getContractAddress('MCD_JUG');
-    const isEth = ETH.isInstance(lockAmount);
+    const isEth = FTM.isInstance(lockAmount);
     const isGnt = GNT.isInstance(lockAmount);
     const method = setMethod(isEth, isGnt, id);
     const args = [
@@ -168,6 +168,8 @@ export default class CdpManager extends LocalService {
     // Indicates if gem supports transferFrom
     if (!isEth && method !== 'openLockGNTAndDraw')
       args.splice(-1, 0, !GNT.isInstance(lockAmount));
+    if (method == 'lockGemAndDraw' || method == 'openLockGemAndDraw')
+      args.splice(-1, 0, ilkReserveMap[ilk] || '0x0000000000000000000000000000000000000000');
 
     return await this.proxyActions[method](...args);
   }
@@ -176,7 +178,7 @@ export default class CdpManager extends LocalService {
   async lock(id, ilk, lockAmount, owner, { promise }) {
     if (!owner) owner = await this.getOwner(id);
     const proxyAddress = await this.get('proxy').ensureProxy({ promise });
-    const isEth = ETH.isInstance(lockAmount);
+    const isEth = FTM.isInstance(lockAmount);
     const isGnt = GNT.isInstance(lockAmount);
     const method = `safeLock${isEth ? 'ETH' : 'Gem'}`;
     const args = [
@@ -197,6 +199,8 @@ export default class CdpManager extends LocalService {
     if (id && isGnt) await transferToBag(lockAmount, proxyAddress, this);
     // Indicates if gem supports transferFrom
     if (!isEth) args.splice(-2, 0, !GNT.isInstance(lockAmount));
+    if (method == 'safeLockGem')
+      args.splice(-1, 0, ilkReserveMap[ilk] || '0x0000000000000000000000000000000000000000');
 
     return this.proxyActions[method](...args);
   }
@@ -215,9 +219,9 @@ export default class CdpManager extends LocalService {
 
   @tracksTransactionsWithOptions({ numArguments: 5 })
   wipeAndFree(id, ilk, wipeAmount = DAI(0), freeAmount, { promise }) {
-    const isEth = ETH.isInstance(freeAmount);
+    const isEth = FTM.isInstance(freeAmount);
     const method = isEth ? 'wipeAndFreeETH' : 'wipeAndFreeGem';
-    return this.proxyActions[method](
+    const args = [
       this._managerAddress,
       this._adapterAddress(ilk),
       this._adapterAddress('DAI'),
@@ -225,7 +229,10 @@ export default class CdpManager extends LocalService {
       freeAmount.toFixed(this._precision(freeAmount, ilk)),
       wipeAmount.toFixed('wei'),
       { dsProxy: true, promise, metadata: { id, ilk, wipeAmount, freeAmount } }
-    );
+    ];
+    if (method == 'wipeAndFreeGem')
+      args.splice(-1, 0, ilkReserveMap[ilk] || '0x0000000000000000000000000000000000000000');
+    return this.proxyActions[method](...args);
   }
 
   @tracksTransactions
@@ -276,16 +283,19 @@ export default class CdpManager extends LocalService {
 
   @tracksTransactions
   wipeAllAndFree(id, ilk, freeAmount, { promise }) {
-    const isEth = ETH.isInstance(freeAmount);
+    const isEth = FTM.isInstance(freeAmount);
     const method = isEth ? 'wipeAllAndFreeETH' : 'wipeAllAndFreeGem';
-    return this.proxyActions[method](
+    const args = [
       this._managerAddress,
       this._adapterAddress(ilk),
       this._adapterAddress('DAI'),
       this.getIdBytes(id),
       freeAmount.toFixed(this._precision(freeAmount, ilk)),
       { dsProxy: true, promise, metadata: { id, ilk, freeAmount } }
-    );
+    ];
+    if (method == 'wipeAllAndFreeGem')
+      args.splice(-1, 0, ilkReserveMap[ilk] || '0x0000000000000000000000000000000000000000');
+    return this.proxyActions[method](...args);
   }
 
   // Gives CDP directly to the supplied address
@@ -357,7 +367,7 @@ export default class CdpManager extends LocalService {
   }
 
   _precision(amount, ilk) {
-    return amount.type.symbol === 'ETH'
+    return amount.type.symbol === 'FTM'
       ? 'wei'
       : this.get(CDP_TYPE).getCdpType(amount.type, ilk).decimals;
   }
