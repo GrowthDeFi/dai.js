@@ -1,7 +1,7 @@
 {
-  "name": "@makerdao/dai-plugin-governance",
+  "name": "@growthdefi/morftm-plugin-governance",
   "description": "A dai.js plugin for adding MKR governance support to dapps.",
-  "version": "0.14.1-beta1",
+  "version": "1.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -35,11 +35,11 @@
     "ramda": "^0.25.0"
   },
   "peerDependencies": {
-    "@makerdao/dai": "^0.31"
+    "@growthdefi/morftm": "1.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
-    "@makerdao/dai": "^0.31",
+    "@growthdefi/morftm": "1.0.0",
     "@makerdao/dai-plugin-config": "^0.2.14-rc.1",
     "web3-utils": "^1.2.6"
   }

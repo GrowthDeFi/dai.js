@@ -22,3 +22,5 @@ export const KOVAN_URL = 'https://staging-gov-db.makerfoundation.com/api/v1';
 export const STAGING_MAINNET_URL =
   'https://qa-gov-db.makerfoundation.com/api/v1';
 export const MAINNET_URL = 'https://gov-db.makerfoundation.com/api/v1';
+
+export const FTMMAIN_URL = 'https://ftm-gov-db.growthdefi.com/api/v1';

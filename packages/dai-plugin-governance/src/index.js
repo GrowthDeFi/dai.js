@@ -24,10 +24,12 @@ import SpellService from './SpellService';
 
 export { MKR, IOU };
 export default {
-  addConfig: function(config, { network = 'mainnet', staging = false }) {
+  addConfig: function(config, { network = 'ftmmain', staging = false }) {
     const contractAddresses = {
       kovan: require('../contracts/addresses/kovan.json'),
-      mainnet: require('../contracts/addresses/mainnet.json')
+      mainnet: require('../contracts/addresses/mainnet.json'),
+
+      ftmmain: require('../contracts/addresses/ftmmain.json')
     };
 
     try {
@@ -106,9 +108,7 @@ export default {
           {
             currency: MKR,
             symbol: MKR.symbol,
-            address: contractAddresses[addressKey].SAI_GOV
-              ? contractAddresses[addressKey].SAI_GOV
-              : contractAddresses[addressKey].GOV
+            address: contractAddresses[addressKey].GOV
           },
           {
             currency: IOU,
