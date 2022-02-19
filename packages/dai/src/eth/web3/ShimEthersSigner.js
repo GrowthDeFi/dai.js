@@ -11,6 +11,8 @@ export default function makeSigner(web3Service) {
     sendTransaction: tx => {
       return web3Service.sendTransaction({
         ...tx,
+        chainId: 250, // TODO this is a hack, should find the proper way to pass in this parameter
+        gasPrice: undefined, // let the wallet calculate
         from: web3Service.currentAddress()
       });
     },

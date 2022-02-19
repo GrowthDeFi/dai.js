@@ -1,5 +1,5 @@
 import Erc20Token from './Erc20Token';
-import { WETH, PETH } from '../Currency';
+import { WFTM, PETH } from '../Currency';
 
 export default class PethToken extends Erc20Token {
   constructor(contract, web3Service, tub) {
@@ -7,7 +7,7 @@ export default class PethToken extends Erc20Token {
     this._tub = tub;
   }
 
-  join(amount, { unit = WETH, promise } = {}) {
+  join(amount, { unit = WFTM, promise } = {}) {
     const value = this._valueForContract(amount, unit);
     return this._tub.join(value, { promise });
   }
@@ -18,16 +18,16 @@ export default class PethToken extends Erc20Token {
   }
 
   async wrapperRatio() {
-    return WETH.ray(await this._tub.per());
+    return WFTM.ray(await this._tub.per());
   }
 
-  async joinPrice(amount, unit = WETH) {
+  async joinPrice(amount, unit = WFTM) {
     const value = this._valueForContract(amount, unit);
-    return WETH.wei(await this._tub.ask(value));
+    return WFTM.wei(await this._tub.ask(value));
   }
 
-  async exitPrice(amount, unit = WETH) {
+  async exitPrice(amount, unit = WFTM) {
     const value = this._valueForContract(amount, unit);
-    return WETH.wei(await this._tub.bid(value));
+    return WFTM.wei(await this._tub.bid(value));
   }
 }

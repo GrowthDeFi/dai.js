@@ -5,10 +5,14 @@ import kovanAddresses from './addresses/kovan.json';
 import mainnetAddresses from './addresses/mainnet.json';
 import testnetAddresses from './addresses/testnet.json';
 
+import ftmmainAddresses from './addresses/ftmmain.json';
+
 const addressMapping = {
   mainnet: mainnetAddresses,
   kovan: kovanAddresses,
-  testnet: testnetAddresses
+  testnet: testnetAddresses,
+
+  ftmmain: ftmmainAddresses
 };
 
 export function contractAddressesInfo(addresses) {
@@ -22,7 +26,7 @@ export function contractAddressesInfo(addresses) {
         decimals: 18
       }
     ],
-    [tokens.WETH]: [
+    [tokens.WFTM]: [
       {
         version: 1,
         address: addresses.SAI_GEM,
@@ -149,5 +153,7 @@ export default [
 
   { name: 'kovan', networkId: 42, contracts: contractInfo('kovan') },
   { name: 'test', networkId: 1337, contracts: contractInfo('testnet') },
-  { name: 'test', networkId: TESTNET_ID, contracts: contractInfo('testnet') }
+  { name: 'test', networkId: TESTNET_ID, contracts: contractInfo('testnet') },
+
+  { name: 'ftmmain', networkId: 250, contracts: contractInfo('ftmmain') }
 ];

@@ -10,6 +10,8 @@ import merge from 'lodash/merge';
 import { mergeServiceConfig } from './index';
 import { AccountType } from '../utils/constants';
 
+import ftmmain from './presets/ftmmain.json';
+
 class ConfigPresetNotFoundError extends Error {
   constructor(message) {
     super('Cannot find configuration preset with name: ' + message);
@@ -59,6 +61,11 @@ function loadPreset(name) {
     case 'inject':
       preset = inject;
       break;
+
+    case 'ftmmain':
+      preset = ftmmain;
+      break;
+
     default:
       throw new ConfigPresetNotFoundError(name);
   }
