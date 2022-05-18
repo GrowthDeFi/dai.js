@@ -113,5 +113,11 @@ module.exports = {
   STKSPOFTMWETH: require('./abis/DSToken.json'),
   STKSPOFTMFUSDT: require('./abis/DSToken.json'),
   STKSPOFTMMIM: require('./abis/DSToken.json'),
-  STKSPOFTMSCREAM: require('./abis/DSToken.json')
+  STKSPOFTMSCREAM: require('./abis/DSToken.json'),
+  XBOO: require('./abis/DSToken.json'),
+  STKXBOO: require('./abis/DSToken.json'),
+  STKSPOFTMBOOV2: require('./abis/DSToken.json'),
+  CLQDR: require('./abis/DSToken.json'),
+  LINSPIRIT: require('./abis/DSToken.json'),
+  SLINSPIRIT: require('./abis/DSToken.json')
 };

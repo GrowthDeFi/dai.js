@@ -72,6 +72,8 @@ export const FUSDT = createCurrency('FUSDT');
 export const LQDR = createCurrency('LQDR');
 export const MIM = createCurrency('MIM');
 export const SPIRIT = createCurrency('SPIRIT');
+export const LINSPIRIT = createCurrency('LINSPIRIT');
+export const SLINSPIRIT = createCurrency('SLINSPIRIT');
 export const FRAX = createCurrency('FRAX');
 export const MAI = createCurrency('MAI');
 export const BOO = createCurrency('BOO');
@@ -115,6 +117,13 @@ export const STKSPOFTMFUSDT = createCurrency('STKSPOFTMFUSDT');
 export const STKSPOFTMMIM = createCurrency('STKSPOFTMMIM');
 export const STKSPOFTMSCREAM = createCurrency('STKSPOFTMSCREAM');
 
+export const XBOO = createCurrency('XBOO');
+export const STKXBOO = createCurrency('STKXBOO');
+export const STKSPOFTMBOOV2 = createCurrency('STKSPOFTMBOOV2');
+export const CLQDR = createCurrency('CLQDR');
+export const LINSPIRIT = createCurrency('LINSPIRIT');
+export const SLINSPIRIT = createCurrency('SLINSPIRIT');
+
 export const defaultCdpTypes = [
   { currency: STKSPIFTMLQDR, ilk: 'STKSPIFTMLQDR-A' },
   { currency: STKSPIFTMFUSDT, ilk: 'STKSPIFTMFUSDT-A' },
@@ -134,6 +143,11 @@ export const defaultCdpTypes = [
   { currency: STKSPOFTMFUSDT, ilk: 'STKSPOFTMFUSDT-A' },
   { currency: STKSPOFTMMIM, ilk: 'STKSPOFTMMIM-A' },
   { currency: STKSPOFTMSCREAM, ilk: 'STKSPOFTMSCREAM-A' },
+
+  { currency: STKXBOO, ilk: 'STKXBOO-A' },
+  { currency: STKSPOFTMBOOV2, ilk: 'STKSPOFTMBOOV2-A' },
+  { currency: CLQDR, ilk: 'CLQDR-A' },
+  { currency: SLINSPIRIT, ilk: 'SLINSPIRIT-A' },
 ];
 
 export const ilkReserveMap = {
@@ -155,6 +169,9 @@ export const ilkReserveMap = {
   'STKSPOFTMFUSDT-A': '0x5965E53aa80a0bcF1CD6dbDd72e6A9b2AA047410',
   'STKSPOFTMMIM-A': '0x6f86e65b255c9111109d2D2325ca2dFc82456efc',
   'STKSPOFTMSCREAM-A': '0x30872e4fc4edbFD7a352bFC2463eb4fAe9C09086',
+
+  'STKXBOO': '0xa48d959AE2E88f1dAA7D5F611E01908106dE7598',
+  'STKSPOFTMBOOV2': '0xEc7178F4C41f346b2721907F5cF7628E388A7a58',
 };
 
 export const SAI = createCurrency('SAI');
