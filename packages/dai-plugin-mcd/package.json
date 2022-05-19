@@ -1,7 +1,7 @@
 {
   "name": "@growthdefi/morftm-plugin-mcd",
   "description": "Plugin to add Multi-Collateral Dai support to dai.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "main": "dist/index.js",
   "unpkg": "umd/index.js",
@@ -20,7 +20,7 @@
     "test:integration": "export NETWORK='test' && yarn test --config ./test/config/jestIntegrationConfig.json"
   },
   "peerDependencies": {
-    "@growthdefi/morftm": "1.0.2"
+    "@growthdefi/morftm": "1.0.3"
   },
   "dependencies": {
     "@makerdao/currency": "0.9.9",
